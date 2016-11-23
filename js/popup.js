@@ -153,7 +153,7 @@ function init() {
 										$("#blocked [rel='x_"+itemdomainfriendly+"']").attr("title",$("#blocked [rel='x_"+itemdomainfriendly+"']").attr("title")+"\r\n["+response.blockeditems[i][1]+"] "+$.trim(response.blockeditems[i][0].replace(/"/g, "'").replace(/\&lt;/g, "<").replace(/\&gt;/g, ">").replace(/\&amp;/g, "&")));
 										$("#blocked [rel='count_"+itemdomainfriendly+"']").html((parseInt($("#blocked [rel='count_"+itemdomainfriendly+"']").html())+1));
 									}
-									if (response.rating == 'true') $("#blocked [rel='r_"+itemdomainfriendly+"']").html('<span class="wot"><a href="http://www.mywot.com/en/scorecard/'+itemdomain.replace(/[\[\]]/g,"")+'" target="_blank" title="'+chrome.i18n.getMessage("ratingbtn")+': '+itemdomain+'">&#128269;</a></span>');
+									if (response.rating == 'true') $("#blocked [rel='r_"+itemdomainfriendly+"']").html('<span class="download"><a href="'+response.blockeditems[i][0]+'" target="_blank">&#128269;</a></span>');
 									if ((response.annoyances == 'true' && response.annoyancesmode == 'strict' && domainCheckStatus == '-1' && baddiesstatus == 1) || (response.antisocial == 'true' && baddiesstatus == '2')) {
 										$("#blocked").append($("#blocked [rel='x_"+itemdomainfriendly+"']"));
 										$("#blocked [rel='x_"+itemdomainfriendly+"'] .box1, #blocked [rel='x_"+itemdomainfriendly+"'] .x_trust, #blocked [rel='x_"+itemdomainfriendly+"'] .box3, #blocked [rel='x_"+itemdomainfriendly+"'] .box4").hide();
@@ -239,7 +239,7 @@ function init() {
 										$("#allowed [rel='x_"+itemdomainfriendly+"']").attr("title",$("#allowed [rel='x_"+itemdomainfriendly+"']").attr("title")+"\r\n["+response.alloweditems[i][1]+"] "+response.alloweditems[i][0]);
 										$("#allowed [rel='count_"+itemdomainfriendly+"']").html((parseInt($("#allowed [rel='count_"+itemdomainfriendly+"']").html())+1));
 									}
-									if (response.rating == 'true') $("#allowed [rel='r_"+itemdomainfriendly+"']").html('<span class="wot"><a href="http://www.mywot.com/en/scorecard/'+itemdomain.replace(/[\[\]]/g,"")+'" target="_blank" title="'+chrome.i18n.getMessage("ratingbtn")+': '+itemdomain+'">&#128269;</a></span>');
+									if (response.rating == 'true') $("#allowed [rel='r_"+itemdomainfriendly+"']").html('<span class="download"><a href="'+response.blockeditems[i][0]+'" target="_blank">&#128269;</a></span>');
 									if (response.annoyances == 'true' && baddiesstatus == '1') {
 										$("#allowed [rel='x_"+itemdomainfriendly+"'] .x_blacklist").attr("title","Unwanted Content Provider").html(chrome.i18n.getMessage("unwanted"));
 									} else if (itemdomain[0] == '[' || itemdomain.match(/^((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){3}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})$/g)) {
